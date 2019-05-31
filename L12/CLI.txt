@@ -1,0 +1,16 @@
+CLI Command Examples
+R1(config)# int tunnel 0
+R1(config-if)# ip address 192.168.2.1 255.255.255.0
+R1(config-if)# tunnel source g0/1
+R1(config-if)# tunnel destination 201.150.200.6
+R1(config-if)# tunnel mode gre ip
+R1(config-if)# exit
+R1(config)# ip route 192.168.3.0 255.255.255.0 192.168.2.2
+
+R3(config)# int tunnel 0
+R3(config-if)# ip address 192.168.2.2 255.255.255.0
+R3(config-if)# tunnel source g0/1
+R3(config-if)# tunnel destination 201.150.200.1
+R3(config-if)# tunnel mode gre ip
+R3(config-if)# exit
+R3(config)# ip route 192.168.1.0 255.255.255.0 192.168.2.1
